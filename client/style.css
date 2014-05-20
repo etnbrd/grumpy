@@ -1,0 +1,151 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:100,900);
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Roboto";
+	font-weight: 100;
+	border: none;
+}
+
+#ctl {
+	position: absolute;
+	/*opacity: 0.3;*/
+	border: 1px solid black;
+	right: 0;
+	top: 0;
+	display: none;
+}
+
+#tplt {
+	display: none;
+}
+
+.banner {
+	width: 100%;
+	/*height: 50px;*/
+	padding: 10px;
+	background: #333;
+	border-bottom: 2px solid #00E8BE;
+	color: white;
+	overflow: hidden;
+	font-size: 50pt;
+	line-height: 70px;
+	/*-webkit-transition: 1s;*/
+	/*transition: 1s;*/
+}
+
+.logoimg {
+	width: 70px;
+	vertical-align: middle;
+	margin-right: 30px;
+}
+
+.logo span {
+	color: #00E8BE;
+	font-weight: 900;
+}
+
+/*.banner:hover {
+	height: 30%;
+	-webkit-transition: 1s;
+	transition: 1s;
+}*/
+
+.banner .body {
+	text-align: center;
+}
+
+
+.body {
+	width: 800px;
+	max-width: 96%;
+	margin: auto;
+}
+
+.user,
+.post,
+.follow,
+.timeline {
+	width: 100%;
+	position: relative;
+	margin: 50px 0;
+}
+
+.user.out {
+	margin: 100px 0;
+}
+
+.user.in {
+	margin: 10px 0;
+}
+
+.user.in,
+.user.out {
+	-webkit-transition: 1s;
+	transition: 1s;
+}
+
+.user *,
+.post *,
+.follow *,
+.timeline * {
+	font-size: 30pt;
+	height: 56px;
+	vertical-align: middle;
+}
+
+.user button,
+.post button,
+.follow button,
+.timeline button {
+	/*margin-right: -100%;*/
+	position: absolute;
+	height: 56px;
+	width: 56px;
+	top: 0;
+	right: 0;
+	background: none;
+	color: gray;
+}
+
+.user .name,
+.follow .text,
+.post .text {
+	display: inline-block;
+	width: 100%;
+	height: 56px;
+	border-bottom: 1px solid #00E8BE;
+	padding-right: 56px;
+}
+
+.user.in .name {
+	border: none;
+	border-top: 1px solid transparent;
+}
+
+.message {
+	list-style-type: none;
+	border-bottom: 1px solid #EFEFEF;
+	position: relative;
+	display: block;
+	height: 76px;
+	line-height: 76px;
+}
+
+.message:last-child {
+	border: none;
+}
+
+.message * {
+	/*display: inline-block;*/
+	height: 76px;
+	line-height: 76px;
+	margin: 0;
+	padding: 0;
+}
+
+.message .user {
+	color: #DDD;
+}

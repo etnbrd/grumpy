@@ -1,0 +1,114 @@
+      html, body {
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+      }
+
+      #graph-container {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        position: absolute;
+        margin-left: 400px;
+      }
+
+      #log {
+        font-family: Terminus;
+        width: 400px;
+        height: 100%;
+        overflow: auto;
+        z-index: 1;
+        position: relative;
+        color: white;
+        background: rgba(23, 23, 23, 0.8);
+      }
+
+      .logBlock {
+        padding: 5px;
+        border-bottom: .5px solid rgba(23, 23, 23, 0.3);
+      }
+
+      .logBlock:hover {
+        /*color: blue;*/
+      }
+
+      .timestamp {
+        opacity: 0.3;
+        float: right;
+      }
+
+      .timestamp::after {
+        /*content: ' :: ';*/
+      }
+
+      .logLine {
+        font-size: 13px;
+        margin-left: 13px;
+      }
+
+      .logMessage {
+        /*animation-duration: 2s;*/
+        /*animation-name: fadein;*/
+      }
+
+      .logData {
+        display: block;
+      }
+
+      .link,
+      .fluxion,
+      .scp {        
+        /*fill: none;*/
+        fill: #666;
+        stroke: #666;
+        stroke-width: 0;
+      }
+
+      .link {
+        fill: none;
+      }
+
+      .scp {
+        fill: white;
+        stroke-width: 0.5px;
+      }
+
+      .nodeColored {
+        fill: #00E8BE;
+      }
+
+      .nodeHidden {
+        opacity: 0.08;
+      }
+
+      .linkHidden {
+        opacity: 0.08;
+      }
+
+      .linkColored {
+        stroke: #00E8BE;
+      }
+
+      text {
+        font-family: "Roboto";
+        font-weight: 100;
+        font-size: 20px;
+        pointer-events: none;
+        /*text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;*/
+      }
+
+      @keyframes fadein {
+        from {
+          color: rgb(255, 0, 73);
+        }
+
+        to {
+          color: inherit;
+        }
+      }
