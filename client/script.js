@@ -1,4 +1,4 @@
-const host = "http://localhost:8080";
+const host = "/";
 
 // API
 
@@ -19,7 +19,7 @@ function read(user, cb) {
 }
 
 function followers(user, cb) {
-	$.get(endpints.followers(host, user), '', cb);
+	$.get(endpoints.followers(host, user), '', cb);
 }
 
 $(function() {
