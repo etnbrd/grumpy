@@ -1,6 +1,6 @@
 $(function(){
 
-  var socket = io.connect('http://localhost:8080');
+  var socket = io.connect(window.location.origin);
 
   var width = $('#graph-container').width() - 10
     , height = $('#graph-container').height() - 10
