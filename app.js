@@ -1,6 +1,6 @@
 var flx = require('./lib/flx'),
     web = require('./lib/web'),
-    api = require('./public/js/endpoints.js');
+    api = require('./public/endpoints.js');
 
 web.static('/console', __dirname + '/console');
 web.static('/public', __dirname + '/public');

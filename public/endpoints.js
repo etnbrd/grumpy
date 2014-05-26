@@ -1,4 +1,4 @@
-const __api = "api";
+const __api = "/api";
 
 var endpoints = {
   read: function(host, user) {

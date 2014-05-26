@@ -45,10 +45,16 @@ $(function() {
 	// UI
 
 	function login() {
+
+
 		user = body.find('.user .name').val();
-		disable(body.find('.user'));
 
 		if(user !== '')
+
+			console.log("login " + user);
+
+			disable(body.find('.user'));
+
 			register(user, function(res) {
 				var userElt = clone('.user.in');
 				userElt.find('.name').html(user);
