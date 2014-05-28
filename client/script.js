@@ -149,13 +149,15 @@ $(function() {
 	function refreshMsg() {
 		var list = body.find(".timeline .list");
 		disable(list);
+
 		read(room, function(data) {
 			var msg = JSON.parse(data);
 			list.empty();
 			enable(list);
 			for (var i = 0; i < msg.data.length; i++) {
 				var message = clone('.message');
-				message.find('.room').html(msg.data[i].room);
+
+				message.find('.room').html(msg.data[i].user);
 				message.find('.text').html(msg.data[i].message);
 				list.prepend(message);
 			}
