@@ -3,6 +3,8 @@ const grumplines = [
 	"Have a bad day ? grump it here !",
 	"Cold coffee ? grump it here !",
 	"Raining ? grump it here !",
+	"Suffocatingly hot ? grump it here !",
+	"Freezing cold ? grump it here !",
 	"Hangover ? grump it here !",
 	"No more beer ? grump it here !",
 	"It's " + dayOfWeek() + ", grump it here !",
