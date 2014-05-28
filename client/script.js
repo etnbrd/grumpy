@@ -1,32 +1,66 @@
 const host = "";
+const grumplines = [
+	"Have a bad day ? grump it here !",
+	"Cold coffee ? grump it here !",
+	"Raining ? grump it here !",
+	"Hangover ? grump it here !",
+	"No more beer ? grump it here !",
+	"It's " + dayOfWeek() + ", grump it here !",
+	"It's " + dayOfWeek() + ", grump it here !",
+	"It's " + dayOfWeek() + ", grump it here !",
+	"It's " + dayOfWeek() + ", grump it here !",
+	"It's " + dayOfWeek() + ", grump it here !",
+	"It's " + dayOfWeek() + ", grump it here !",
+	"It's " + dayOfWeek() + ", grump it here !",
+]
+
+function dayOfWeek(n) {
+	return ([
+		"Sunday",
+		"Monday",
+		"Tuesday",
+		"Wednesday",
+		"Thursday",
+		"Friday",
+		"Saturday",
+	])[n || (new Date).getDay()];
+}
 
 // API
 
-function register(user, cb) {
-	$.get(endpoints.register(host, user), '', cb);
+function register(room, cb) {
+	$.get(endpoints.register(host, room), '', cb);
 }
 
-function follow(user, followee, cb) {
-	$.get(endpoints.follow(host, user, followee), '', cb);
+function follow(room, followee, cb) {
+	$.get(endpoints.follow(host, room, followee), '', cb);
 }
 
-function post(user, msg, cb) {
-	$.get(endpoints.post(host, user, msg), '', cb);
+function post(room, msg, cb) {
+	$.get(endpoints.post(host, room, msg), '', cb);
 }
 
-function read(user, cb) {
-	$.get(endpoints.read(host, user), '', cb);
+function read(room, cb) {
+	$.get(endpoints.read(host, room), '', cb);
 }
 
-function followers(user, cb) {
-	$.get(endpoints.followers(host, user), '', cb);
+function followers(room, cb) {
+	$.get(endpoints.followers(host, room), '', cb);
 }
 
 $(function() {
 
 	var body = $('#body');
 	var tplt = $('#tplt');
-	var user;
+	var room;
+
+	var header = $('.banner');
+	header.click(function() {
+		if (header.hasClass("open"))
+			header.removeClass("open");
+		else
+			header.addClass("open");
+	})
 
 	// HELPERS
 
@@ -45,22 +79,17 @@ $(function() {
 	// UI
 
 	function login() {
+		room = body.find('.room .name').val();
 
+		if(room !== '')
+			disable(body.find('.room'));
 
-		user = body.find('.user .name').val();
+			register(room, function(res) {
+				var roomElt = clone('.room.in');
+				roomElt.find('.name').html(room);
+				body.find('.room').replaceWith(roomElt);
 
-		if(user !== '')
-
-			console.log("login " + user);
-
-			disable(body.find('.user'));
-
-			register(user, function(res) {
-				var userElt = clone('.user.in');
-				userElt.find('.name').html(user);
-				body.find('.user').replaceWith(userElt);
-
-				body.find('.user button').click(logout);
+				body.find('.room button').click(logout);
 
 				var follow = clone('.follow');
 				follow.submit(followSomeone);
@@ -68,6 +97,7 @@ $(function() {
 
 				var post = clone('.post');
 				post.submit(postMsg);
+				post.find(".text").attr("placeholder", grumplines[Math.floor(Math.random() * (grumplines.length - 1))]);
 				body.append(post);
 
 				var timeline = clone('.timeline');
@@ -79,14 +109,13 @@ $(function() {
 	}
 
 	function logout() {
-		console.log('logging out');
+		body.find('.room, .follow, .post, .timeline').remove();
 
-		body.find('.follow, .post, .timeline').remove();
+		var roomElt = clone('.room.out');
+		// body.find('.room').replaceWith(roomElt);
+		body.append(roomElt);
 
-		var userElt = clone('.user.out');
-		body.find('.user').replaceWith(userElt);
-
-		body.find('.user').submit(login);
+		body.find('.room').submit(login);
 
 		return false;
 	}
@@ -94,7 +123,7 @@ $(function() {
 	function followSomeone() {
 		var followee = body.find('.follow .text');
 
-		follow(user, followee.val(), function() {
+		follow(room, followee.val(), function() {
 			console.log('followee added');
 			refreshMsg();
 		});
@@ -107,7 +136,7 @@ $(function() {
 	function postMsg() {
 		var msg = body.find('.post .text');
 
-		post(user, msg.val(), function() {
+		post(room, msg.val(), function() {
 			console.log("sent message");
 			refreshMsg();
 		});
@@ -120,19 +149,19 @@ $(function() {
 	function refreshMsg() {
 		var list = body.find(".timeline .list");
 		disable(list);
-		read(user, function(data) {
+		read(room, function(data) {
 			var msg = JSON.parse(data);
 			list.empty();
 			enable(list);
 			for (var i = 0; i < msg.data.length; i++) {
-				console.log(msg.data[i]);
 				var message = clone('.message');
-				message.find('.user').html(msg.data[i].user);
+				message.find('.room').html(msg.data[i].room);
 				message.find('.text').html(msg.data[i].message);
 				list.prepend(message);
 			}
 		});
 	}
 
-	body.find('.user').submit(login);
+	// body.find('.room').submit(login);
+	logout();
 });

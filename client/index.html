@@ -11,35 +11,65 @@
 
   <div class="banner">
     <div class="body">
-      <div class="logo"><img class="logoimg" src="logo.png">grump<span>y</span></div>
-      <!-- <div id="help">?</div> -->
+      <img class="logoimg" src="logo-r.png">
+      <div class="help">
+        <div class="logo">grump<span>y</span></div>
+
+        <h1>What is grumpy ?</h1>
+
+        <p>
+          Grumpy is a completly open a-social network.<br>
+          It's the place you can externalize all your monday-bad-mooded-thoughts on.<br>
+          And it's anonymous.
+        </p>
+        <p>
+          <img src="explosives.png" class="left" height="75pt">
+          Grumpy is an experiment with <a href="https://github.com/etnbrd/fluxion">fluxionnal stuff</a>.<br>
+          Experimental, instable, highly explosive stuff.<br>
+          Handle with care.
+        </p>
+
+
+        <h1>How to use ?</h1>
+
+        Dead simple, you can :
+        <ul>
+          <li>Join a room.</li>
+          <li>Post messages in this room.</li>
+          <li>Make the room receive messages from other rooms (well, following ...)</li>
+        </ul>
+
+        <br>
+
+        <p class="center">
+          And that's pretty much it.<br>
+          Happy grumping :)
+        </p>
+          
+      </div>
     </div>
   </div>
 
   
 
     <div id="body" class="body">
-      <form class="user out">
-        <input class="name" placeholder="username"><!-- 
-     --><button>↵</button>
-      </form>
     </div>
 
     <div id="tplt">
-      <div class="user in">
-        <span class="name">my user</span>
+      <div class="room in">
+        <span class="name">my room</span>
         <button>⏏</button>
       </div>
-      <form class="user out">
-        <input class="name" placeholder="username"><!-- 
+      <form class="room out">
+        <input class="name" placeholder="join room"><!-- 
      --><button>↵</button>
       </form>
       <form class="follow">
-        <input class="text" placeholder="want to follow someone ?"></input><!-- 
+        <input class="text" placeholder="hear grumbles from another room ?"></input><!-- 
      --><button>↵</button>
       </form>
       <form class="post">
-        <input class="text" placeholder="have a bad day ? grump it !"></input><!-- 
+        <input class="text"></input><!-- 
      --><button>↵</button>
       </form>
       <div class="timeline">
@@ -48,7 +78,7 @@
         </ul>
       </div>
       <li class='message'>
-        <span class="user"></span>
+        <span class="room"></span>
         <span class="text"></span>
       </li>
     </div>
