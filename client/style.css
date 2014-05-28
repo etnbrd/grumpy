@@ -237,11 +237,13 @@ a:hover {
 
 .message {
 	list-style-type: none;
-	border-bottom: 1px solid #EFEFEF;
-	position: relative;
-	display: block;
-	height: 76px;
-	line-height: 76px;
+	height: auto;
+	padding-bottom: 20px;
+	border-bottom: 1px dotted #9a896c;
+	/*position: relative;*/
+	/*display: block;*/
+	/*height: 76px;*/
+	/*line-height: 76px;*/
 }
 
 .message:last-child {
@@ -250,8 +252,8 @@ a:hover {
 
 .message * {
 	/*display: inline-block;*/
-	height: 76px;
-	line-height: 76px;
+	/*height: 76px;*/
+	/*line-height: 76px;*/
 	margin: 0;
 	padding: 0;
 }
