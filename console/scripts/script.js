@@ -50,7 +50,7 @@ $(function(){
   }
 
   function _post(msg) {
-    log(msg.id, msg.url, msg.data, msg.s, msg.t);
+    logger(msg.id, msg.url, msg.data, msg.s, msg.t);
 
     // Update scope
     for (var p in msg.scp)
@@ -74,7 +74,7 @@ $(function(){
   }
 
   function _init(msg) {
-    log('init', '', '', 'initialization');
+    logger('init', '', '', 'initialization');
 
     nodes['input'] = {name: 'input', type: 'fluxion', nbLinks: 0, data: '', fixedx: true, fixedy: true, x: 50, y: height/2};
     update();
@@ -164,7 +164,7 @@ $(function(){
     else
       return 'M' + d.source.x + ',' + d.source.y + 'A' + 0 + ',' + 0 + ' 0 0,1 ' + d.target.x + ',' + d.target.y;
   }
-  
+
   function transform(d) {
     return 'translate(' + d.x + ',' + d.y + ')';
   }

@@ -5,7 +5,7 @@ var templates = {
     return [
       "<div class='logBlock' id=" + eltId + ">",
       "<div/>"
-    ].join(''); 
+    ].join('');
   },
   logRequest: function (id, url) {
     return [
@@ -37,7 +37,9 @@ var templates = {
 
 };
 
-function log (eltId) {
+console.log('definition of logger', logger);
+
+function logger (eltId) {
 
   function _timestamp() {
     var time = new Date();
@@ -129,7 +131,7 @@ function log (eltId) {
   }
 
   var logBlock = $("#" + eltId);
-  if (logBlock.length === 0) { 
+  if (logBlock.length === 0) {
     logBlock = $(templates.logBlock(eltId));
     logElm.append(logBlock);
 
@@ -149,12 +151,12 @@ function log (eltId) {
   var logMessages = logLine.find('.logMessage');
   var logMessageSource = logMessages.find('.logMessageSource');
   var logMessageTarget = logMessages.find('.logMessageTarget');
-  
+
   logLine.hover(logLineMouseOver, logLineMouseOut);
   logMessageSource.hover(logMessageMouseOver, logLineMouseOver);
   logMessageTarget.hover(logMessageMouseOver, logLineMouseOver);
 
   logBlock.append(logLine);
-  
+
   logElm.scrollTop = logElm.scrollHeight;
 }
