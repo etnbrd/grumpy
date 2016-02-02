@@ -37,8 +37,6 @@ var templates = {
 
 };
 
-console.log('definition of logger', logger);
-
 function logger (eltId) {
 
   function _timestamp() {
